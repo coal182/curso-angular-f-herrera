@@ -1,0 +1,10 @@
+/* Add application styles & imports to this file! */
+html,
+body {
+  background-color: var(--surface-b);
+  font-family: var(--font-family);
+}
+
+.text-layout {
+  color: var(--text-color);
+}

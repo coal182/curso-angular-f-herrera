@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+
+  ui:
+    image: node:18.12.1-alpine
+    container_name: heroesApp
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - ./node_modules/:/node_modules
+    ports:
+      - "4200:4200"
+      - "9876:9876"
+    command: sh -c "npm install --legacy-peer-deps && npm run start"
+  api:
+    image: node:18.12.1-alpine
+    container_name: heroesApp-json
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - ./node_modules/:/node_modules
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install --legacy-peer-deps && npx json-server db.json --host 0.0.0.0"
